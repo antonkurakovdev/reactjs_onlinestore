@@ -22,33 +22,35 @@ function Products(){
     }, [])
 
     return (
-        <div className="product">
-            <div className="product__name">{product.title}</div>
+        <div className="container-width padding-tb-40">
+            <div className="product">
+                <div className="product__name">{product.title}</div>
 
-            <div className="product__content">
-                <div className="product__image">
-                    <img src={product.thumbnail} />
-                </div>
-                <div className="product__right">
-                    <div className="product__right-top">
-                        <div className="product__rating">
-                            <div className="product__rating-value">{product.rating}</div>
-                            <div className="product__rating-link">Написать отзыв</div>
-                        </div>
-
-                        <div className="product__call">Задать вопрос</div>
-
-                        <div className="product__sku">
-                            <span className="product__sku-label">Код:</span>
-                            <span className="product__sku-value">I0241GCXF9</span>
-                        </div>
+                <div className="product__content">
+                    <div className="product__image">
+                        <img src={product.thumbnail} />
                     </div>
+                    <div className="product__right">
+                        <div className="product__right-top">
+                            <div className="product__rating">
+                                <div className="product__rating-value">{product.rating}</div>
+                                <div className="product__rating-link">Написать отзыв</div>
+                            </div>
 
-                    <div className="product__right-middle">
-                        <div className="product__info">
-                            
+                            <div className="product__call">Задать вопрос</div>
+
+                            <div className="product__sku">
+                                <span className="product__sku-label">Код:</span>
+                                <span className="product__sku-value">I0241GCXF9</span>
+                            </div>
                         </div>
 
+                        <div className="product__right-middle">
+                            <div className="product__info">
+                                
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
