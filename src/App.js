@@ -1,9 +1,11 @@
-import './common.scss';
-import Categories from './Pages/Categories/Categories';
-import Products from './Pages/Products/Products';
-import NotFound from './Pages/NotFound/NotFound';
-import Header from './Header';
-import Footer from './Footer';
+import './Layout/styles/common.scss'
+import Categories from './Pages/Categories/Categories'
+import Products from './Pages/Products/Products'
+import NotFound from './Pages/NotFound/NotFound'
+import Header from './Layout/Header'
+import Footer from './Layout/Footer'
+import TopPanel from './Layout/TopPanel'
+
 import {
   BrowserRouter as Router,
   Routes,
@@ -11,10 +13,12 @@ import {
   Link
 } from "react-router-dom";
 
+
 function App() {
   return (
     <Router>
       <div className="wrapper">
+        <TopPanel />
         <Header />
         <Routes>
           <Route path="/" element={<Categories />} />
@@ -28,4 +32,4 @@ function App() {
   );
 }
 
-export default App;
+export default App
