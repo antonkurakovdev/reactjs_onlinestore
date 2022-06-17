@@ -1,14 +1,7 @@
 import React from "react";
 import Logo from "../Blocks/Logo"
 import Search from "../Blocks/Search";
-
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link,
-    useParams
-  } from "react-router-dom";
+import CallRequest from "../Blocks/CallRequest";
 
 
 function Header(){
@@ -17,6 +10,7 @@ function Header(){
             <div className="container-width">
                 <Logo />
                 <Search />
+                <CallRequest />
 
                 {/* <ul>
                     <li><Link to="/">Home</Link></li>
