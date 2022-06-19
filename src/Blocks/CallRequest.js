@@ -3,7 +3,7 @@ import React from "react";
 function CallRequest(){
     return (
         <div className="call">
-            <div className="call__icon"><i className="fa-solid fa-search"></i></div>
+            <div className="call__icon"><i class="fa-solid fa-mobile-screen"></i></div>
             <div className="call__content">
                 <a className="call__phone" href="tel:88005553535">
                     <span className="call__phone-gray">+8(800)</span>
