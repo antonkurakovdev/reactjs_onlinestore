@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./categories.scss"
 import ProductItemGrid from "./components/ProductItemGrid";
 import ProductItemShortList from "./components/ProductItemShortList";
+import Select from 'react-select'
 
 function Categories(){
     const itemsPerPage = 12
@@ -36,22 +37,29 @@ function Categories(){
         })
     }, [limit, skip])
 
+
+    const sortings = [
+        { value: 'PRICEASC', label: 'Дешевые выше' },
+        { value: 'PRICEDESC', label: 'Дорогие выше' },
+        { value: 'SYMBOLASC', label: 'От А до Я' },
+        { value: 'SYMBOLDESC', label: 'От Я до А' }
+    ]
+
     return (
         <div className="catalog">
             <div className="container-width padding-tb-40">
                 <div className="catalog__controls">
                     <div className="sortings">
                         <span className="sortings-label">Сортировать по:</span>
-                        <select className="sortings-select">
-                            <option>Дешевые выше</option>
-                            <option>Дорогие выше</option>
-                            <option>От А до Я</option>
-                            <option>От Я до А</option>
-                        </select>
+                        <Select className="sortings-select" options={sortings} defaultValue={{ value: 'PRICEASC', label: 'Дешевые выше' }} />
                     </div>
                     <div className="catalog__controls-views">
-                        <span className="catalog__controls-views-one" onClick={() => SwitchDisplayType(1)}>Сетка</span>
-                        <span className="catalog__controls-views-one" onClick={() => SwitchDisplayType(2)}>Короткий список</span>
+                        <span className="catalog__controls-views-one" onClick={() => SwitchDisplayType(1)}>
+                            <i className="fa-solid fa-grip-lines"></i>
+                        </span>
+                        <span className="catalog__controls-views-one" onClick={() => SwitchDisplayType(2)}>
+                            <i className="fa-solid fa-grip-lines"></i>
+                        </span>
                     </div>
                 </div>
                 <div className={ (displayType == 1) ? 'grid' : 'shortlist'}>
