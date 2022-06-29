@@ -1,12 +1,22 @@
 import React, { useEffect, useState } from "react";
+import {connect, useDispatch, useSelector} from 'react-redux'
+import Select from 'react-select'
+import { getProducts } from "../../redux/actions";
+
 import "./categories.scss"
 import ProductItemGrid from "./components/ProductItemGrid";
 import ProductItemShortList from "./components/ProductItemShortList";
-import Select from 'react-select'
 
-function Categories(){
+
+
+const Categories = () => {
+    const dispatch = useDispatch()
+    const products = useSelector((state) => {
+        console.log('state', state.category.products);
+        return state.category.products
+    })
     const itemsPerPage = 12
-    let [products, setProducts] = useState([])
+    // let [products, setProducts] = useState([])
     let [limit, setLimit] = useState(itemsPerPage)
     let [skip, setSkip] = useState(0)
     let [displayType, setDisplayType] = useState(1)
@@ -27,14 +37,15 @@ function Categories(){
     }
     //хук получающий список товаров
     useEffect(() => {
-        fetch('https://dummyjson.com/products?limit=' + limit + '&skip=' + skip)
-        .then(res => res.json())
-        .then(json => {
-            setProducts(json.products)
-            setTotal(json.total)
-            setPagination(Array.from(Array(Math.ceil(json.total / itemsPerPage)).keys()))
-            console.log(json)
-        })
+        // fetch('https://dummyjson.com/products?limit=' + limit + '&skip=' + skip)
+        // .then(res => res.json())
+        // .then(json => {
+        //     setProducts(json.products)
+        //     setTotal(json.total)
+        //     setPagination(Array.from(Array(Math.ceil(json.total / itemsPerPage)).keys()))
+        //     console.log(json)
+        // })
+        dispatch(getProducts())
     }, [limit, skip])
 
 
@@ -78,4 +89,11 @@ function Categories(){
     )
 }
 
-export default Categories
+const mapStateToProps = state => {
+    console.log(state)
+    return {
+        products: state.products
+    }
+}
+
+export default connect(mapStateToProps, null)(Categories)
