@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from "react";
-
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link,
     useParams
   } from "react-router-dom";
 
-function Products(){
+import "./Product.scss"
+
+function Product(){
     const { id } = useParams();
     const [product, setProduct] = useState({})
 
@@ -58,4 +55,4 @@ function Products(){
     )
 }
 
-export default Products
+export default Product

@@ -1,6 +1,6 @@
 import './styles/layout.scss'
-import Categories from './pages/Categories/Categories'
-import Products from './pages/Products/Products'
+import Category from './pages/Category/Category'
+import Product from './pages/Product/Product'
 import NotFound from './pages/NotFound/NotFound'
 import Header from './layout/Header/Header'
 import Footer from './layout/Footer/Footer'
@@ -20,9 +20,9 @@ function App() {
         <TopPanel />
         <Header />
         <Routes>
-          <Route path="/" element={<Categories />} />
-          <Route path="/categories" element={<Categories />} />
-          <Route path="/products/:id" element={<Products />} />
+          <Route path="/" element={<Category />} />
+          <Route path="/category/:id" element={<Category />} />
+          <Route path="/products/:id" element={<Product />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
