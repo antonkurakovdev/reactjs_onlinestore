@@ -5,7 +5,7 @@ function MiniWishlist(){
         <div className="wishlist-mini dropdown-box">
             <div className="dropdown-box__title">
                 <div className="wishlist-mini__count dropdown-box__count">2</div>
-                <i class="fa-solid fa-heart"></i>
+                <i className="fa-solid fa-heart"></i>
             </div>
         </div>
     )
