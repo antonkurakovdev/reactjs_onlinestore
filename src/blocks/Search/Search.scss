@@ -1,0 +1,40 @@
+.search{
+    position: relative;
+  
+    &__input{
+      width: calc(100% - 70px);
+      height: 44px;
+      background: #f6f6f6;
+      color: #2e2e2e;
+      border: 0;
+      padding: 0 50px 0px 20px;
+      font-size: 16px;
+      border-radius: 12.5px;
+      outline: none !important;
+    }
+  
+    &__button{
+      position: absolute;
+      right: 0px;
+      top: 0px;
+      height: 44px;
+      width: 50px;
+      margin: 0;
+      font-size: 20px;
+      line-height: 16px;
+      color: #7b7b7b;
+      transform: scale(1);
+      transition: transform 400ms cubic-bezier(0.25,0.8,0.25,1), color 400ms cubic-bezier(0.25,0.8,0.25,1);
+      background-color: transparent;
+      border: 0px;
+      cursor: pointer;
+  
+      &:hover{
+        transform: scale(1.1);
+  
+        i{
+          color: #00a046;
+        }
+      }
+    }
+}

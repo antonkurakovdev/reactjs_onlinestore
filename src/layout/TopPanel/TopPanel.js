@@ -1,8 +1,10 @@
 import React from "react";
-import Menu from "../Blocks/Menu/Menu";
-import GeoLocation from "../Blocks/GeoLocation";
-import Currencies from "../Blocks/Currencies";
-import Languages from "../Blocks/Languages";
+
+import './TopPanel.scss'
+import Menu from "../../blocks/Menu/Menu";
+import GeoLocation from "../../blocks/GeoLocation/GeoLocation";
+import Currencies from "../../blocks/Currencies/Currencies";
+import Languages from "../../blocks/Languages/Languages";
 
 function TopPanel(){
     const quickLinks = [

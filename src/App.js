@@ -1,16 +1,15 @@
-import './Layout/styles/common.scss'
-import Categories from './Pages/Categories/Categories'
-import Products from './Pages/Products/Products'
-import NotFound from './Pages/NotFound/NotFound'
-import Header from './Layout/Header'
-import Footer from './Layout/Footer'
-import TopPanel from './Layout/TopPanel'
+import './styles/layout.scss'
+import Categories from './pages/Categories/Categories'
+import Products from './pages/Products/Products'
+import NotFound from './pages/NotFound/NotFound'
+import Header from './layout/Header/Header'
+import Footer from './layout/Footer/Footer'
+import TopPanel from './layout/TopPanel/TopPanel'
 
 import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Link
 } from "react-router-dom";
 
 

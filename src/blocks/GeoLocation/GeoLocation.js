@@ -1,4 +1,5 @@
 import React from "react";
+import './GeoLocation.scss'
 
 function GeoLocation(){
     return (

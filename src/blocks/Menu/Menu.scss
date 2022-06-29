@@ -1,0 +1,21 @@
+.menu{
+    &__ul{
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+    &__li{
+      margin-right: 10px;
+      line-height: 19px;
+    }
+  
+    &__a{
+      color:#919191;
+      font-size: 14px;
+      cursor: pointer;
+  
+      &:hover{
+        color: #1e1e1e;
+      }
+    }
+}

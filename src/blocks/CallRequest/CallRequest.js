@@ -1,4 +1,5 @@
 import React from "react";
+import './CallRequest.scss'
 
 function CallRequest(){
     return (
