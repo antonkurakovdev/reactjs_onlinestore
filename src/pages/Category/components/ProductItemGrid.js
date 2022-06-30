@@ -1,37 +1,44 @@
 import React from "react";
-
 import {
-    BrowserRouter as Router,
-    Routes,
-    Route,
     Link
   } from "react-router-dom";
 
 function ProductItemGrid({ product }){
+
     return (
         <div className="grid__item">
             <div className="grid__item-wrap">
                 <div className="grid__item-image">
-                    <Link to={"products/" + product.id}><img src={product.thumbnail} /></Link>
-                </div>
-                <div className="grid__item-price">
-                    {product.price}
-                </div>
-                <div className="grid__item-rating">
-                    {product.rating}
+                    <Link to={"products/" + product.id}><img alt="" src={product.thumbnail} /></Link>
+                    <div className="grid__item-buttons">
+                        <div className="grid__item-button grid__item-addtowishlist"><i className="fa-regular fa-heart"></i></div>
+                        <div className="grid__item-button grid__item-addtocompare"><i className="fa-solid fa-chart-simple"></i></div>
+                    </div>
                 </div>
                 <div className="grid__item-name">
-                    <Link to={"products/" + product.id}>{product.title}</Link>
+                    <Link className="grid__item-name-a" to={"products/" + product.id}>{product.title}</Link>
                 </div>
-                <div className="grid__item-stock">
-                    <span>В наличии:</span>
-                    <span>{product.stock}</span>
+                <div className="grid__item-rating">
+                    <i className="fa-solid fa-star"></i>
+                    <i className="fa-solid fa-star"></i>
+                    <i className="fa-solid fa-star"></i>
+                    <i className="fa-solid fa-star-half-stroke"></i>
+                    <i className="fa-regular fa-star"></i>
+                    <div className="grid__item-rating-value">
+                        ({product.rating})
+                    </div>
+                </div>
+                <div className={'grid__item-stock ' + ((product.stock > 0) ? 'grid__item-stock_active' : '')}>
+                    <i className={'fa-regular ' + ((product.stock > 0) ? 'fa-circle-check' : 'fa-circle-xmark')}></i>
+                    <span className='grid__item-stock-label'>В наличии:</span>
+                    <span className='grid__item-stock-value'>{product.stock} шт.</span>
                 </div>
 
                 <div className="grid__item-control">
-                    <div className="grid__item-addtocart">Купить</div>
-                    <div className="grid__item-addtowishlist">Добавить в желаемое</div>
-                    <div className="grid__item-addtocompare">Добавить в сравнение</div>
+                    <div className="grid__item-price">
+                        {product.price} руб.
+                    </div>
+                    <div className="grid__item-add_to_cart"><i className="fa-solid fa-cart-shopping"></i></div>
                 </div>
             </div>
         </div>

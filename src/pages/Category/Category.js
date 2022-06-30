@@ -61,7 +61,7 @@ const Category = () => {
                         </span>
                     </div>
                 </div>
-                <div className={ (category.displayType == 1) ? 'grid' : 'shortlist'}>
+                <div className={ (category.displayType === 1) ? 'grid' : 'shortlist'}>
                     { category.products && category.products.map((product) => {
                         return (category.displayType === 1) ? <ProductItemGrid product={product} key={product.id} /> : <ProductItemShortList product={product} key={product.id} /> 
                     })}
