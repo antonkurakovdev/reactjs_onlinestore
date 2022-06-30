@@ -1,4 +1,4 @@
-import { GET_CATEGORY_PRODUCTS, SET_PRODUCTS_PAGINATION } from "./types";
+import { GET_CATEGORY_PRODUCTS, SWITCH_PRODUCTS_DISPLAY_TYPE } from "./types";
 
 //get list products of category
 export function getProducts(limit, skip){
@@ -6,15 +6,13 @@ export function getProducts(limit, skip){
         // const response = await fetch('https://dummyjson.com/products/category/smartphones?limit=' + limit + '&skip=' + skip)
         const response = await fetch('https://dummyjson.com/products?limit=' + limit + '&skip=' + skip)
         const json = await response.json()
-        console.log('actions getProducts', json)
         dispatch({ type: GET_CATEGORY_PRODUCTS, data: json })
     }
 }
 
-//get list products of category
-export function paginationUpdate(value){
+export function switchProductsDisplayType(value){
     return {
-        type: SET_PRODUCTS_PAGINATION,
+        type: SWITCH_PRODUCTS_DISPLAY_TYPE,
         data: value
     }
 }

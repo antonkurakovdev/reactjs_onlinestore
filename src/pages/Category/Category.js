@@ -1,63 +1,41 @@
-import React, { useEffect, useState } from "react";
-import {connect, useDispatch, useSelector} from 'react-redux'
+import React, { useEffect } from "react";
+import {useDispatch, useSelector} from 'react-redux'
 import Select from 'react-select'
 
 import "./Category.scss"
 import ProductItemGrid from "./components/ProductItemGrid";
 import ProductItemShortList from "./components/ProductItemShortList";
-import { getProducts, paginationUpdate } from "../../redux/actions";
+import { getProducts, switchProductsDisplayType } from "../../redux/actions";
 
 
 
 const Category = () => {
     const dispatch = useDispatch()
-    const productsInfo = useSelector((state) => {
+    const category = useSelector((state) => {
         return state.category
     })
-
     const itemsPerPage = 12
-    const limit = itemsPerPage
-    const total = productsInfo.total
+    const total = category.total
     const pagination = Array.from(Array(Math.ceil(total / itemsPerPage)).keys())
     const skip = 0
 
-    console.log('productsInfo', productsInfo)
-
-    // let [products, setProducts] = useState([])
-    // let [limit, setLimit] = useState(itemsPerPage)
-    // let [skip, setSkip] = useState(0)
-    let [displayType, setDisplayType] = useState(1)
-    // const [total, setTotal] = useState()
-    // const [pagination, setPagination] = useState([])
-    const [sorting, setSorting] = useState()
+    console.log('category render >>', category)
+    // const [sorting, setSorting] = useState()
 
     //событие нажатия на элемент паджинации
     const SwitchPage = (pageNumber) => {
-        // setSkip(itemsPerPage * pageNumber)
-        dispatch(getProducts(limit, itemsPerPage * pageNumber))
+        dispatch(getProducts(itemsPerPage, itemsPerPage * pageNumber))
     }
     //событие переключения вида отображения товаров
     const SwitchDisplayType = (clickType) => {
-        setDisplayType(clickType)
-        if (clickType !== displayType) {
-            setDisplayType(clickType)
+        if (category.displayType !== clickType) {
+            dispatch(switchProductsDisplayType(clickType))
         }
     }
     //хук получающий список товаров
     useEffect(() => {
-        // fetch('https://dummyjson.com/products?limit=' + limit + '&skip=' + skip)
-        // .then(res => res.json())
-        // .then(json => {
-        //     setProducts(json.products)
-        //     setTotal(json.total)
-        //     setPagination(Array.from(Array(Math.ceil(json.total / itemsPerPage)).keys()))
-        //     console.log(json)
-        // })
-        dispatch(getProducts(limit, skip))
-        console.log('total / itemsPerPage', total, itemsPerPage)
-
-    }, [limit, skip])
-
+        dispatch(getProducts(itemsPerPage, skip))
+    }, [itemsPerPage, skip])
 
     const sortings = [
         { value: 'PRICEASC', label: 'Дешевые выше' },
@@ -83,9 +61,9 @@ const Category = () => {
                         </span>
                     </div>
                 </div>
-                <div className={ (displayType == 1) ? 'grid' : 'shortlist'}>
-                    { productsInfo.products && productsInfo.products.map((product) => {
-                        return (displayType === 1) ? <ProductItemGrid product={product} key={product.id} /> : <ProductItemShortList product={product} key={product.id} /> 
+                <div className={ (category.displayType == 1) ? 'grid' : 'shortlist'}>
+                    { category.products && category.products.map((product) => {
+                        return (category.displayType === 1) ? <ProductItemGrid product={product} key={product.id} /> : <ProductItemShortList product={product} key={product.id} /> 
                     })}
                 </div>
 
@@ -99,11 +77,4 @@ const Category = () => {
     )
 }
 
-const mapStateToProps = state => {
-    console.log(state)
-    return {
-        products: state.products
-    }
-}
-
-export default connect(null, null)(Category)
+export default Category
