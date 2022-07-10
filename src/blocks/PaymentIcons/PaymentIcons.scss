@@ -1,0 +1,19 @@
+@import '/src/styles/variables.scss';
+
+.payment-icons{
+    display: flex;
+
+    &__one{
+        margin-right: 15px;
+
+        &:last-child{
+            margin-right: 0px;
+        }
+
+
+        i{
+            font-size: 34px;
+            color: $color-blue;
+        }
+    }
+}

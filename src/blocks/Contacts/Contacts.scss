@@ -1,0 +1,30 @@
+.contacts{
+    &__title{
+        font-size: 18px;
+        font-weight: bold;
+        color: #2e2e2e;
+    }
+
+    &__wrap{
+        margin-top: 10px;
+    }
+
+    &__one{
+        margin-bottom: 4px;
+        font-size: 14px;
+
+        &:last-child{
+            margin-bottom: 0px;
+        }
+    }
+
+    &__link, &__phone{
+        font-size: 14px;
+        color: #3e77aa;
+    }
+
+    &__phone{
+        text-decoration: none;
+    }
+    
+}

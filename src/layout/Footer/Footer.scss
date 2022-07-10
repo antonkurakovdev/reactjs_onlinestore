@@ -1,9 +1,50 @@
+@import '/src/styles/variables.scss';
+
 .footer{
     width: 100%;
     border-top: 1px solid #eee;
-    padding: 50px 0px;
-    font-size: 50px;
-    font-weight: 700;
-    text-align: center;
+    padding: 40px 0px 20px 0px;
+
+    &__menu{
+        display: flex;
+
+        .menu{
+            &__ul{
+                display: block;
+                margin-top: 10px;
+            }
+
+            &__li{
+                margin-right: 0px;
+                margin-bottom: 8px;
+
+                &:last-child{
+                    margin-bottom: 0px;
+                }
+            }
+
+            &__a{
+                color: $color-blue;
+                text-decoration: none;
+                font-size: 14px;
+            }
+        }
+    }
+
+    &__section{
+        width: 25%;
+    }
+
+    &__bottom{
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    &__payment-icons{
+        margin-left: auto;    
+    }
+
+
 }
   

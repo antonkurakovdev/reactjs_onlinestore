@@ -5,9 +5,12 @@ import {
 
 import './Menu.scss'
 
-function Menu({ items }){
+function Menu({ items, title }){
     return (
         <div className="menu">
+            { title && 
+                (<div className="menu__title">{title}</div>)
+            }
             <ul className="menu__ul">
                 {items.map(item => {
                     return <li className="menu__li" key={item.id}><Link className="menu__a" to={item.href}>{item.name}</Link></li>
