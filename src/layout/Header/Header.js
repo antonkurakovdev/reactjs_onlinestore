@@ -1,7 +1,7 @@
 import React from "react";
 
 import './Header.scss'
-import Logo from "../../blocks/Logo/Logo"
+import Logo from "../../blocks/static_templates/Logo/Logo"
 import Search from "../../blocks/Search/Search"
 import CallRequest from "../../blocks/CallRequest/CallRequest"
 import MiniСomparison from "../../blocks/MiniСomparison/MiniСomparison"
