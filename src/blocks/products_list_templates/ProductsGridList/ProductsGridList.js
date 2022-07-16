@@ -3,8 +3,9 @@ import {
     Link
   } from "react-router-dom";
 
-function ProductItemGrid({ product }){
+import "./ProductsGridList.scss"
 
+function ProductsGridList({ product }){
     return (
         <div className="grid__item">
             <div className="grid__item-wrap">
@@ -45,4 +46,4 @@ function ProductItemGrid({ product }){
     )
 }
 
-export default ProductItemGrid
+export default ProductsGridList

@@ -1,0 +1,36 @@
+
+.shortlist{
+    &__item{
+        &:first-child{
+            .shortlist__item-wrap{
+                border-top: 1px solid #eee;
+            }
+        }
+        &-wrap{
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background: #fff;
+            border-bottom: 1px solid #eee;
+            flex: 1 100%;
+        }
+
+        &-image{
+            width: 120px;
+            margin-right: 20px;
+        }
+
+        &-content{
+            width: calc(60% - 120px);
+        }
+        &-controls{
+            width: auto;
+            margin-left: auto;
+            display: flex;
+
+            div{
+                margin-left: 10px;
+            }
+        }
+    }
+}

@@ -3,11 +3,11 @@ import {useDispatch, useSelector} from 'react-redux'
 import Select from 'react-select'
 
 import "./Category.scss"
-import ProductItemGrid from "./components/ProductItemGrid";
-import ProductItemShortList from "./components/ProductItemShortList";
 import { getProducts, switchProductsDisplayType } from "../../redux/actions";
 import Breadcrumbs from "../../blocks/Breadcrumbs/Breadcrumbs";
 import Menu from "../../blocks/Menu/Menu";
+import ProductsGridList from "../../blocks/products_list_templates/ProductsGridList/ProductsGridList";
+import ProductsShortList from "../../blocks/products_list_templates/ProductsShortList/ProductsShortList";
 
 
 
@@ -83,7 +83,7 @@ const Category = () => {
 
                         <div className={ (category.displayType === 1) ? 'grid' : 'shortlist'}>
                             { category.products && category.products.map((product) => {
-                                return (category.displayType === 1) ? <ProductItemGrid product={product} key={product.id} /> : <ProductItemShortList product={product} key={product.id} /> 
+                                return (category.displayType === 1) ? <ProductsGridList product={product} key={product.id} /> : <ProductsShortList product={product} key={product.id} /> 
                             })}
                         </div>
 

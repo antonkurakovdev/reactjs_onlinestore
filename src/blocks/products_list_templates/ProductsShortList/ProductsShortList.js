@@ -1,14 +1,11 @@
 import React from "react";
-
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
     Link,
-    useParams
   } from "react-router-dom";
 
-function ProductItemShortList({ product }){
+import "./ProductsShortList.scss"
+
+function ProductsShortList({ product }){
     return (
         <div className="shortlist__item">
             <div className="shortlist__item-wrap">
@@ -42,4 +39,4 @@ function ProductItemShortList({ product }){
     )
 }
 
-export default ProductItemShortList
+export default ProductsShortList
