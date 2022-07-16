@@ -1,9 +1,9 @@
 import React from "react";
 
-import Contacts from "../../blocks/Contacts/Contacts";
-import Copyright from "../../blocks/Copyright/Copyright";
+import Contacts from "../../blocks/static_templates/Contacts/Contacts";
+import Copyright from "../../blocks/static_templates/Copyright/Copyright";
 import Menu from "../../blocks/Menu/Menu";
-import PaymentIcons from "../../blocks/PaymentIcons/PaymentIcons";
+import PaymentIcons from "../../blocks/static_templates/PaymentIcons/PaymentIcons";
 import './Footer.scss'
 
 function Footer(){
