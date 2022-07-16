@@ -1,3 +1,4 @@
+@import '/src/styles/variables.scss';
 .grid{
     display: flex;
     flex-wrap: wrap;
@@ -42,9 +43,13 @@
             margin-bottom: 5px;
 
             &-a{
-                color: #212121;
+                color: $color-link;
                 font-size: 14px;
                 text-decoration: none;
+
+                &:hover{
+                    color: $color-link-hover;
+                }
             }
         }
 
@@ -70,12 +75,12 @@
 
             &:hover{
                 i{
-                    color: #3e77aa;
+                    color: $color-blue;
                 }
             }
 
             i{
-                color: #7b7b7b;
+                color: $color-gray;
                 font-size: 22px;
                 line-height: 22px;
             }
@@ -94,7 +99,7 @@
             margin-bottom: 5px;
 
             i{
-                color: #FFA900;
+                color: $color-orange;
                 font-size: 12px;
                 margin-right: 2px;
                 line-height: 19px;
@@ -102,21 +107,21 @@
 
             &-value{
                 margin-left: 5px;
-                color: #7b7b7b;
+                color: $color-gray;
                 font-size: 14px;
             }
         }
 
         &-stock{
             font-size: 14px;
-            color: #797878;
+            color: $color-gray;
 
             .fa-regular{
                 margin-right: 5px;
             }
 
             &_active{
-                color: #00a046;
+                color: $color-green;
             }
 
             &-value{
@@ -131,7 +136,7 @@
         }
 
         &-price{
-            color: #2e2e2e;
+            color: $color-link;
             font-size: 18px;
             font-weight: 700;
         }
@@ -139,7 +144,7 @@
         &-add_to_cart{
             margin-left: auto;
             box-shadow: inset 0 -2px 0 0 rgb(0 0 0 / 30%);
-            background: #00a046;
+            background: $color-green;
             color: #fff;
             border-radius: 6px;
             height: 36px;

@@ -1,4 +1,6 @@
 
+@import '/src/styles/variables.scss';
+
 .shortlist{
     &__item{
         &:first-child{
@@ -20,16 +22,122 @@
             margin-right: 20px;
         }
 
+        &-name{
+            &-a{
+                display: block;
+                width: 100%;
+                text-align: left;
+                color: $color-link;
+                font-size: 14px;     
+                text-decoration: none;
+                
+                &:hover{
+                    color: $color-link-hover;
+                }
+            }
+        }
+
+
+        &-rating{
+            display: flex;
+            align-items: center;
+            margin-bottom: 2px;
+
+            i{
+                color: $color-orange;
+                font-size: 12px;
+                margin-right: 2px;
+                line-height: 19px;
+            }
+
+            &-value{
+                margin-left: 5px;
+                color: $color-gray;
+                font-size: 11px;
+            }
+        }
+
+        &-stock{
+            font-size: 13px;
+            color: $color-gray;
+
+            .fa-regular{
+                margin-right: 5px;
+            }
+
+            &_active{
+                color: $color-green;
+            }
+
+            &-value{
+                margin-left: 5px;
+            }
+        }
+
+        &-code{
+            margin-bottom: 2px;
+            line-height: 14px;
+            
+            &-label, &-value{
+                color:$color-gray;
+                font-size: 11px;
+            }
+        }
+
+        &-price{
+            color: $color-link;
+            font-size: 18px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        &-add_to_cart{
+            margin-left: auto;
+            box-shadow: inset 0 -2px 0 0 rgb(0 0 0 / 30%);
+            background: $color-green;
+            color: #fff;
+            border-radius: 6px;
+            height: 36px;
+            width: 36px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+
+            i{
+                font-size: 18px;
+                margin: 0px auto;
+            }
+        }
+
+        &-add_to_wishlist,
+        &-add_to_compare{
+            cursor: pointer;
+            margin-left: 20px;
+
+            i{
+                color:$color-gray;
+                font-size: 24px;
+            }
+
+            &:hover{
+                i{
+                    color: $color-blue;
+                }
+            }
+        }
+
         &-content{
             width: calc(60% - 120px);
         }
+
         &-controls{
             width: auto;
             margin-left: auto;
             display: flex;
+            align-items: center;
 
             div{
-                margin-left: 10px;
+                // margin-left: 10px;
             }
         }
     }
