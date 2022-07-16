@@ -1,4 +1,4 @@
-import { GET_CATEGORY_PRODUCTS, SWITCH_PRODUCTS_DISPLAY_TYPE } from "./types";
+import { GET_CATEGORY_PRODUCTS, SWITCH_PRODUCTS_DISPLAY_TYPE, SWITCH_PRODUCTS_SORT_TYPE } from "./types";
 
 //get list products of category
 export function getProducts(limit, skip){
@@ -17,4 +17,10 @@ export function switchProductsDisplayType(value){
     }
 }
 
+export function switchProductsSortType(value){
+    return {
+        type: SWITCH_PRODUCTS_SORT_TYPE,
+        data: value
+    }
+}
 

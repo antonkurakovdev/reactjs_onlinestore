@@ -6,6 +6,8 @@ import "./Category.scss"
 import ProductItemGrid from "./components/ProductItemGrid";
 import ProductItemShortList from "./components/ProductItemShortList";
 import { getProducts, switchProductsDisplayType } from "../../redux/actions";
+import Breadcrumbs from "../../blocks/Breadcrumbs/Breadcrumbs";
+import Menu from "../../blocks/Menu/Menu";
 
 
 
@@ -14,13 +16,22 @@ const Category = () => {
     const category = useSelector((state) => {
         return state.category
     })
-    const itemsPerPage = 12
-    const total = category.total
-    const pagination = Array.from(Array(Math.ceil(total / itemsPerPage)).keys())
-    const skip = 0
 
-    console.log('category render >>', category)
-    // const [sorting, setSorting] = useState()
+    const sideMenu = [
+        { id: 1, name: "Компьютеры", href: "/category/1" },
+        { id: 2, name: "Автоэлектроника", href: "/category/2" },
+        { id: 3, name: "Телевизоры и видео", href: "/category/3" },
+        { id: 4, name: "Телефоны", href: "/category/4" },
+        { id: 5, name: "MP3 плееры", href: "/category/5" },
+        { id: 6, name: "Фото видео", href: "/category/6" },
+        { id: 7, name: "Игровые приставки", href: "/category/7" },
+    ]
+
+    //количество товаров на странице
+    const itemsPerPage = 12
+    //генерация элементов паджинации
+    const pagination = Array.from(Array(Math.ceil(category.total / itemsPerPage)).keys())
+    const skip = 0
 
     //событие нажатия на элемент паджинации
     const SwitchPage = (pageNumber) => {
@@ -47,30 +58,41 @@ const Category = () => {
     return (
         <div className="catalog">
             <div className="container-width padding-tb-40">
-                <div className="catalog__controls">
-                    <div className="sortings">
-                        <span className="sortings-label">Сортировать по:</span>
-                        <Select className="sortings-select" options={sortings} defaultValue={{ value: 'PRICEASC', label: 'Дешевые выше' }} />
+                <h1 className="catalog__title">{category.category_name}</h1>
+                <Breadcrumbs />
+                <div className="catalog__wrapper">
+                    <div className="catalog__side">
+                        <Menu items={sideMenu} type="vertical" />
                     </div>
-                    <div className="catalog__controls-views">
-                        <span className="catalog__controls-views-one" onClick={() => SwitchDisplayType(1)}>
-                            <i className="fa-solid fa-grip-lines"></i>
-                        </span>
-                        <span className="catalog__controls-views-one" onClick={() => SwitchDisplayType(2)}>
-                            <i className="fa-solid fa-grip-lines"></i>
-                        </span>
-                    </div>
-                </div>
-                <div className={ (category.displayType === 1) ? 'grid' : 'shortlist'}>
-                    { category.products && category.products.map((product) => {
-                        return (category.displayType === 1) ? <ProductItemGrid product={product} key={product.id} /> : <ProductItemShortList product={product} key={product.id} /> 
-                    })}
-                </div>
+                    
+                    <div className="catalog__content">
+                        <div className="catalog__controls">
+                            <div className="sortings">
+                                <span className="sortings-label">Сортировать по:</span>
+                                <Select className="sortings-select" options={sortings} defaultValue={category.sortType} />
+                            </div>
+                            <div className="catalog__controls-views">
+                                <span className="catalog__controls-views-one" onClick={() => SwitchDisplayType(1)}>
+                                    <i className="fa-solid fa-grip-lines"></i>
+                                </span>
+                                <span className="catalog__controls-views-one" onClick={() => SwitchDisplayType(2)}>
+                                    <i className="fa-solid fa-grip-lines"></i>
+                                </span>
+                            </div>
+                        </div>
 
-                <div className="pagination">
-                    { pagination.map((page) => {
-                        return <span onClick={() => SwitchPage(page)} className="pagination__item" key={page}>{page + 1}</span>
-                    })}
+                        <div className={ (category.displayType === 1) ? 'grid' : 'shortlist'}>
+                            { category.products && category.products.map((product) => {
+                                return (category.displayType === 1) ? <ProductItemGrid product={product} key={product.id} /> : <ProductItemShortList product={product} key={product.id} /> 
+                            })}
+                        </div>
+
+                        <div className="pagination">
+                            { pagination.map((page) => {
+                                return <span onClick={() => SwitchPage(page)} className="pagination__item" key={page}>{page + 1}</span>
+                            })}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

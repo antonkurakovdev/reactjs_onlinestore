@@ -8,7 +8,7 @@ import Languages from "../../blocks/Languages/Languages";
 
 function TopPanel(){
     const quickLinks = [
-        { id: 1, name: "Главная", href: "/" }, 
+        { id: 1, name: "Главная", href: "/" },
         { id: 2, name: "Каталог", href: "/categories" },
         { id: 3, name: "Товар", href: "/products/1" },
         { id: 5, name: "Пункты самовывоза", href: "#" },

@@ -1,9 +1,12 @@
-import { GET_CATEGORY_PRODUCTS, SWITCH_PRODUCTS_DISPLAY_TYPE } from "./types"
+import { GET_CATEGORY_PRODUCTS, SWITCH_PRODUCTS_DISPLAY_TYPE, SWITCH_PRODUCTS_SORT_TYPE } from "./types"
 
 const initialState = {
+    category_name: 'Электроника',
+    category_id: 5,
     products: [],
     total: 0,
-    displayType: 1
+    displayType: 1,
+    sortType: { value: 'PRICEASC', label: 'Дешевые выше' }
 }
 
 export const categoryReducer = (state = initialState, action) => {
@@ -12,6 +15,8 @@ export const categoryReducer = (state = initialState, action) => {
             return {...state, products: action.data.products, total: action.data.total }
         case SWITCH_PRODUCTS_DISPLAY_TYPE:
             return {...state, displayType: action.data }
+            case SWITCH_PRODUCTS_SORT_TYPE:
+                return {...state, sortType: action.data }
         default:
            return state
     }
