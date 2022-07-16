@@ -1,4 +1,11 @@
 .menu{
+    &.vertical{
+      .menu__ul{
+        flex-direction: column;
+        align-items: initial;
+      }
+    }
+
     &__title{
       font-size: 18px;
       font-weight: bold;

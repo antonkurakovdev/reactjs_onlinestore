@@ -5,10 +5,10 @@ import {
 
 import './Menu.scss'
 
-function Menu({ items, title }){
+function Menu({ items, title, type }){
     return (
-        <div className="menu">
-            { title && 
+        <div className={"menu " + type}>
+            { title &&
                 (<div className="menu__title">{title}</div>)
             }
             <ul className="menu__ul">
