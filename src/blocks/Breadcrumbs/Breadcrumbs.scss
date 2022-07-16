@@ -1,0 +1,33 @@
+.breadcrumbs{
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+
+    &__link,
+    &__divider,
+    &__active{
+        line-height: 30px;
+        height: 30px;
+        font-size: 14px;
+    }
+
+    &__link{
+        color: #7b7b7b;
+
+        &:hover{
+            color: #3e77aa;
+        }
+    }
+
+    &__divider{
+        color: #949494;
+        margin: 0px 6px;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    &__active{
+        color: #949494;
+    }
+}
