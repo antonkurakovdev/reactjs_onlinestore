@@ -72,11 +72,20 @@ const Category = () => {
                                 <Select className="sortings-select" options={sortings} defaultValue={category.sortType} />
                             </div>
                             <div className="catalog__controls-views">
-                                <span className="catalog__controls-views-one" onClick={() => SwitchDisplayType(1)}>
-                                    <i className="fa-solid fa-grip-lines"></i>
+                                <span className={"catalog__controls-views-one grid " + (category.displayType === 1 ? "catalog__controls-views-one_active" : "")} onClick={() => SwitchDisplayType(1)}> 
+                                    <span className="wrap">
+                                        <span className="dot first"></span>  
+                                        <span className="dot second"></span>  
+                                        <span className="dot third"></span>  
+                                        <span className="dot fourth"></span>                        
+                                    </span>
                                 </span>
-                                <span className="catalog__controls-views-one" onClick={() => SwitchDisplayType(2)}>
-                                    <i className="fa-solid fa-grip-lines"></i>
+                                <span className={"catalog__controls-views-one short " + (category.displayType === 2 ? "catalog__controls-views-one_active" : "")} onClick={() => SwitchDisplayType(2)}>
+                                    <span className="wrap">
+                                        <span className="line first"></span>  
+                                        <span className="line second"></span>  
+                                        <span className="line third"></span>                                      
+                                    </span>
                                 </span>
                             </div>
                         </div>
