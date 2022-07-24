@@ -1,4 +1,4 @@
-import { GET_CATEGORY_PRODUCTS, SWITCH_PRODUCTS_DISPLAY_TYPE, SWITCH_PRODUCTS_SORT_TYPE } from "./types";
+import { GET_CATEGORY_PRODUCTS, SWITCH_PRODUCTS_DISPLAY_TYPE, SWITCH_PRODUCTS_SORT_TYPE, GET_CART_PRODUCTS } from "./types";
 
 //get list products of category
 export function getProducts(limit, skip){
@@ -24,3 +24,10 @@ export function switchProductsSortType(value){
     }
 }
 
+export function getCart(){
+    return async dispatch => {
+        const response = await fetch('https://dummyjson.com/carts')
+        const json = await response.json()
+        dispatch({ type: GET_CART_PRODUCTS, data: json.carts[0] })
+    }
+}

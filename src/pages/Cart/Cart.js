@@ -1,14 +1,27 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Link } from "react-router-dom"
+import { useDispatch, useSelector } from 'react-redux'
 
+import { getCart } from "../../redux/actions";
 import Breadcrumbs from "../../blocks/Breadcrumbs/Breadcrumbs"
 
 
 const Cart = () => {
+    const dispatch = useDispatch()
+    const cart = useSelector((state) => {
+        console.log(state)
+        return state.cart
+    })
+
     const breadcrumbs = [
         { id: 1, name: "Главная", link: "/" },
         { id: 2, name: "Корзина", link: "/cart" }
     ]
+
+    useEffect(() => {
+        dispatch(getCart())
+    }, [])
+
     return (
         <div className="cart">
             <div className="container-width">
