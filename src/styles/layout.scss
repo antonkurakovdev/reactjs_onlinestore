@@ -130,3 +130,73 @@ img{
       border-radius: 10px;
     }
 }
+
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 36px;
+  white-space: normal;
+  padding: 0 15px;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: .01929em;
+  color: $color-link;
+  border: 0 none;
+  background: rgba(0,0,0,0.05);
+  background-clip: border-box;
+  box-shadow: inset 0 -2px 0 0 rgba(0,0,0,0.1);
+  border-radius: 6px;
+  transition: background 150ms, border-color 150ms, box-shadow 150ms;   
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover{
+    padding: 0 15px;
+    background: #f3f3f3;
+    color: #2e2e2e;
+    box-shadow: inset 0 -2px 0 0 rgba(0,0,0,0.2);
+  }
+
+  &__secondary{
+    background: $btn-secondary-color;
+    color: #fff;
+    box-shadow: inset 0 -2px 0 0 rgba(0,0,0,0.3);
+
+    &:hover{
+      background: $btn-secondary-hover-color;
+      color: #fff;
+    }
+  }
+
+  &__primary{
+    background: $btn-primary-color;
+    color: #fff;
+    box-shadow: inset 0 -2px 0 0 rgba(0,0,0,0.3);
+
+    &:hover{
+      background: $btn-primary-hover-color;
+      color: #fff;
+      box-shadow: inset 0 -2px 0 0 rgba(0,0,0,0.4);
+    }
+  }
+
+  &__tertiary{
+    background: $btn-tertiary-color;
+    color: #2e2e2e;
+    box-shadow: inset 0 -2px 0 0 rgba(0,0,0,0.3);
+
+    &:hover{
+      background: $btn-tertiary-hover-color ;
+      color: #2e2e2e;
+      box-shadow: inset 0 -2px 0 0 #e2e2e2;
+      background: #f6f6f6 !important;
+    }
+  }
+
+
+  & + .btn{
+    margin-left: 15px;
+  }
+}

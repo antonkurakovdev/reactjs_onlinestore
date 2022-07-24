@@ -4,18 +4,18 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { getCart } from "../../redux/actions";
 import Breadcrumbs from "../../blocks/Breadcrumbs/Breadcrumbs"
+import CartProduct from "./components/CartProduct";
+import "./Cart.scss"
 
 
 const Cart = () => {
     const dispatch = useDispatch()
     const cart = useSelector((state) => {
-        console.log(state)
         return state.cart
     })
-
     const breadcrumbs = [
         { id: 1, name: "Главная", link: "/" },
-        { id: 2, name: "Корзина", link: "/cart" }
+        { id: 2, name: "Корзина", link: "/cart", last: true }
     ]
 
     useEffect(() => {
@@ -31,27 +31,25 @@ const Cart = () => {
 
                 <div className="cart__buttons cart__buttons-top">
                     <div className="cart__buttons-left">
-                        <Link className="btn__secondary" to="/">Продолжить покупки</Link>
+                        <Link className="btn btn__secondary" to="/">Продолжить покупки</Link>
                     </div>
                     <div className="cart__buttons-right">
-                        <Link className="btn__primary" to="/">Оформить покупки</Link>
+                        <Link className="btn btn__primary" to="/checkout">Оформить покупки</Link>
                     </div>
                 </div>
 
                 <div className="cart__content">
                     <div className="cart__content-header">
-                        <div className="cart__content-header-column">Товар</div>
-                        <div className="cart__content-header-column"></div>
-                        <div className="cart__content-header-column">Цена за ед.</div>
-                        <div className="cart__content-header-column">Кол-во</div>
-                        <div className="cart__content-header-column">Итого</div>
+                        <div className="cart__content-header-column cart__content-image">Товар</div>
+                        <div className="cart__content-header-column cart__content-description"></div>
+                        <div className="cart__content-header-column cart__content-price">Цена за ед.</div>
+                        <div className="cart__content-header-column cart__content-qty">Кол-во</div>
+                        <div className="cart__content-header-column cart__content-price">Итого</div>
                     </div>
                     <div className="cart__content-items">
-                        <div className="cart__content-column cart__content-image"></div>
-                        <div className="cart__content-column cart__content-name"></div>
-                        <div className="cart__content-column cart__content-price"></div>
-                        <div className="cart__content-column cart__content-qty"></div>
-                        <div className="cart__content-column cart__content-price"></div>
+                        { cart.products && cart.products.map((product) => {
+                            return <CartProduct product={product} key={product.id} />
+                        })}
                     </div>
                 </div>
 
@@ -72,11 +70,11 @@ const Cart = () => {
 
                 <div className="cart__buttons cart__buttons-bottom">
                     <div className="cart__buttons-left">
-                        <Link className="btn__secondary" to="/">Продолжить покупки</Link>
-                        <span className="btn__tertiary">Очистить корзину</span>
+                        <Link className="btn btn__secondary" to="/">Продолжить покупки</Link>
+                        <span className="btn btn__tertiary">Очистить корзину</span>
                     </div>
                     <div className="cart__buttons-right">
-                        <Link className="btn__primary" to="/">Оформить покупки</Link>
+                        <Link className="btn btn__primary" to="/checkout">Оформить покупки</Link>
                     </div>
                 </div>
             </div>
