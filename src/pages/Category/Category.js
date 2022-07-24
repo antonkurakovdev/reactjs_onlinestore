@@ -27,6 +27,12 @@ const Category = () => {
         { id: 7, name: "Игровые приставки", href: "/category/7" },
     ]
 
+    const breadcrumbs = [
+        { id: 1, name: "Главная", link: "/" },
+        { id: 2, name: "Каталог", link: "/catalog" },
+        { id: 3, name: "Категория" }
+    ]
+
     //количество товаров на странице
     const itemsPerPage = 12
     //генерация элементов паджинации
@@ -59,7 +65,7 @@ const Category = () => {
         <div className="catalog">
             <div className="container-width padding-tb-40">
                 <h1 className="catalog__title">{category.category_name}</h1>
-                <Breadcrumbs />
+                <Breadcrumbs breadcrumbs={breadcrumbs} />
                 <div className="catalog__wrapper">
                     <div className="catalog__side">
                         <Menu items={sideMenu} type="vertical" />

@@ -1,11 +1,9 @@
 import React from "react"
-import {
-    Link
-  } from "react-router-dom";
+import { Link } from "react-router-dom"
 
-import './Breadcrumbs.scss' 
+import './Breadcrumbs.scss'
 
-function Breadcrumbs(){
+function Breadcrumbs({ breadcrumbs }){
     return (
         <div className="breadcrumbs">
             <Link className="breadcrumbs__link" to="/">Home</Link>
