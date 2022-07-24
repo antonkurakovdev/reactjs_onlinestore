@@ -30,7 +30,7 @@ const Category = () => {
     const breadcrumbs = [
         { id: 1, name: "Главная", link: "/" },
         { id: 2, name: "Каталог", link: "/catalog" },
-        { id: 3, name: "Категория" }
+        { id: 3, name: "Категория", last: true }
     ]
 
     //количество товаров на странице

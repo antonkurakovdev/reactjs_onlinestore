@@ -6,11 +6,22 @@ import './Breadcrumbs.scss'
 function Breadcrumbs({ breadcrumbs }){
     return (
         <div className="breadcrumbs">
-            <Link className="breadcrumbs__link" to="/">Home</Link>
-            <span className="breadcrumbs__divider">/</span>
-            <Link className="breadcrumbs__link" to="/catalog">Catalog</Link>
-            <span className="breadcrumbs__divider">/</span>
-            <span className="breadcrumbs__active">Category</span>
+            { breadcrumbs.map((br) => {
+                let breadcrumbHtml = ""
+                if (br.last){
+                    breadcrumbHtml = <span className="breadcrumbs__active">{br.name}</span>
+                }else{
+                    breadcrumbHtml = <Link className="breadcrumbs__link" to={br.link}>{br.name}</Link>
+                }
+                return (
+                    <React.Fragment key={br.id}>
+                        {breadcrumbHtml}
+                        { !br.last &&
+                            <span className="breadcrumbs__divider">/</span>
+                        }
+                    </React.Fragment>
+                )
+            })}
         </div>
     )
 }
