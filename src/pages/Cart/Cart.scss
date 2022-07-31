@@ -74,4 +74,55 @@
         
     }
 
+    &__empty{
+        background-color: #fbfbfb;
+        height: 200px;
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+
+        &-text{
+            margin: 0px auto;
+            color: #bdc3c7;
+            font-size: 16px;
+        }
+    }
+
+    &__statistic{
+        &-one{
+            display: flex;
+            margin-bottom: 5px;
+
+            &:last-child{
+                margin-bottom: 0px;
+            }
+        }
+        &-title{
+            width: 220px;
+            text-align: right;
+            margin-right: 20px;
+        }
+
+        &-value{
+            width: calc(100% - 240px);
+            text-align: right;
+        }
+    }
+
+    &__total{
+        margin-bottom: 20px;
+
+        &-wrapper{
+            border:1px solid #e1e1e1;
+            padding: 17px 20px;
+            display: flex;
+        }
+
+        &-left{
+            width: calc(100% - 380px);
+        }
+        &-right{
+            width: 380px;
+        }
+    }
 }

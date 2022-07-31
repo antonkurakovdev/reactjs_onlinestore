@@ -3,9 +3,24 @@ import {
     Link
   } from "react-router-dom";
 
+import { useDispatch } from "react-redux";
+
 import "./ProductsGridList.scss"
 
+import { addToCart } from "../../../redux/actions";
+
 function ProductsGridList({ product }){
+    const dispatch = useDispatch()
+    const onClickAdd = () => {
+        const item = {
+            id: product.id,
+            title: product.title,
+            thumbnail: product.thumbnail,
+            price: product.price,
+            amount: 1,
+        }
+        dispatch(addToCart(item))
+    } 
     return (
         <div className="grid__item">
             <div className="grid__item-wrap">
@@ -39,7 +54,7 @@ function ProductsGridList({ product }){
                     <div className="grid__item-price">
                         {product.price} руб.
                     </div>
-                    <div className="grid__item-add_to_cart"><i className="fa-solid fa-cart-shopping"></i></div>
+                    <div onClick={onClickAdd} className="grid__item-add_to_cart"><i className="fa-solid fa-cart-shopping"></i></div>
                 </div>
             </div>
         </div>

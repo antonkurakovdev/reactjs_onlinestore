@@ -22,6 +22,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Category />} />
+          <Route path="/catalog" element={<Category />} />
           <Route path="/category/:id" element={<Category />} />
           <Route path="/products/:id" element={<Product />} />
           <Route path="/cart" element={<Cart />} />

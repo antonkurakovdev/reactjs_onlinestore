@@ -9,7 +9,7 @@ import Languages from "../../blocks/Languages/Languages";
 function TopPanel(){
     const quickLinks = [
         { id: 1, name: "Главная", href: "/" },
-        { id: 2, name: "Каталог", href: "/categories" },
+        { id: 2, name: "Каталог", href: "/catalog" },
         { id: 3, name: "Товар", href: "/products/1" },
         { id: 5, name: "Корзина", href: "/cart" },
         { id: 6, name: "Оформление заказа", href: "/checkout" },
