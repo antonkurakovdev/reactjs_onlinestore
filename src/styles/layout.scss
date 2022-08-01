@@ -81,6 +81,13 @@ img{
 
 .dropdown-box{
     position: relative;
+
+    &:hover{
+      .dropdown-box__content{
+        display: block;
+      }
+    }
+
     &__title{
       display: flex;
       align-items: center;
@@ -110,6 +117,26 @@ img{
       }
     }
 
+    &__content{
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background: #fff;
+      margin-top: 0;
+      border: 0;
+      border-radius: 0;
+      box-shadow: 0 0 0 1px rgba(0,0,0,0.03), 0 2px 7px 0 rgba(0,0,0,0.22);
+      z-index: 10;      
+      min-width: 320px;
+      display: none;
+
+      &-wrapper{
+        padding: 10px 15px;
+        max-height: 320px;
+        overflow: auto;
+      }
+    }
+
     &__count{
       display: flex;
       align-items: center;
@@ -128,6 +155,83 @@ img{
       top: 4px;
       right: 3px;
       border-radius: 10px;
+    }
+
+    &__empty{
+      height: 90px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+
+      & + .dropdown-box__content-wrapper{
+        padding: 0px;
+      }
+
+      &-text{
+        margin: 0px auto;
+        font-size: 14px;
+        color: #bbb;
+      }
+    }
+
+    &__element{
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      padding: 10px 0px;
+      position: relative;
+      border-bottom: 1px solid #ecf0f1;
+
+      &:first-child{
+        padding-top: 0px;
+      }
+
+      &:last-child{
+        border-bottom: 0px;
+      }
+
+
+      &-image{
+        width: 40px;
+        margin-right: 15px;
+
+        img{
+          object-fit: cover;
+          height: 40px;
+        }
+      }
+      &-content{
+        width: calc(100% - 55px);
+      }
+
+      &-name{
+        margin-bottom: 3px;
+
+        a{
+          color: $color-blue;
+          font-size: 12px;
+          line-height: 14px;
+
+          &:hover{
+            text-decoration: underline;
+          }
+        }
+      }
+
+      &-price{
+        font-size: 12px;
+        line-height: 14px;
+      }
+    }
+
+    &__buttons{
+      background: #f6f6f6;
+      padding: 10px;
+      display: flex;
+
+      &-right{
+        margin-left: auto;
+      }
     }
 }
 
@@ -151,6 +255,7 @@ img{
   transition: background 150ms, border-color 150ms, box-shadow 150ms;   
   text-decoration: none;
   cursor: pointer;
+  font-size: 14px;
 
   &:hover{
     padding: 0 15px;
