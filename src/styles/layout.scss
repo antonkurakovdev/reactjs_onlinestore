@@ -305,3 +305,57 @@ img{
     margin-left: 15px;
   }
 }
+
+.qty{
+  position: absolute;
+  right: -5px;
+  border: 1px solid #e1e1e1;
+  box-shadow: 0 0 5px rgba(238,238,238,0.9);
+  background: #fff;
+  margin-top: -40px;
+  padding: 3px 50px 4px 5px;
+  transition: opacity .1s linear;
+  visibility: hidden;
+  opacity: 0;
+  border-radius: 8px;
+
+  &__wrapper{
+    width: 60px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border-radius: 6px;    
+    justify-content: flex-end;
+  }
+  
+  &__increase, &__decrease{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 36px;
+    border-width: 0;
+    font-size: 14px;
+    font-family: monospace;
+    border-radius: 0;
+    background: none;
+    color: rgba(46,46,46,0.5);
+    cursor: pointer;
+  }
+
+  &__input{
+    width: 20px;
+    border: 0px;
+    border-radius: 0px;
+    color: $color-green;
+    font-size: 14px;
+    text-align: center;
+
+    &:focus{
+      border: 0px;
+      outline:none;
+    }
+  }
+}

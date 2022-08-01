@@ -15,8 +15,8 @@ export const categoryReducer = (state = initialState, action) => {
             return {...state, products: action.data.products, total: action.data.total }
         case SWITCH_PRODUCTS_DISPLAY_TYPE:
             return {...state, displayType: action.data }
-            case SWITCH_PRODUCTS_SORT_TYPE:
-                return {...state, sortType: action.data }
+        case SWITCH_PRODUCTS_SORT_TYPE:
+            return {...state, sortType: action.data }
         default:
            return state
     }

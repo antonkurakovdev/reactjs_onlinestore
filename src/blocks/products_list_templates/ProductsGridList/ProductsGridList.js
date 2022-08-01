@@ -21,6 +21,18 @@ function ProductsGridList({ product }){
         }
         dispatch(addToCart(item))
     } 
+    if (!product.amount){
+        product.amount = 1;
+    }
+
+    const onClickIncrease = () => {
+        // product.amount++;
+    }
+
+    const onClickDecrease = () => {
+        // product.amount--;
+    }
+
     return (
         <div className="grid__item">
             <div className="grid__item-wrap">
@@ -54,7 +66,19 @@ function ProductsGridList({ product }){
                     <div className="grid__item-price">
                         {product.price} руб.
                     </div>
-                    <div onClick={onClickAdd} className="grid__item-add_to_cart"><i className="fa-solid fa-cart-shopping"></i></div>
+                    <div className="grid__item-control-right">
+                        <div onClick={onClickAdd} className="grid__item-add_to_cart">
+                            <i className="fa-solid fa-cart-shopping"></i>
+                        </div>
+
+                        <div className="qty">
+                            <div className="qty__wrapper">
+                                <span onClick={onClickDecrease} className="qty__decrease"><i class="fa-solid fa-minus"></i></span>
+                                <input className="qty__input" type="text" value={product.amount} />
+                                <span onClick={onClickIncrease} className="qty__increase"><i class="fa-solid fa-plus"></i></span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
