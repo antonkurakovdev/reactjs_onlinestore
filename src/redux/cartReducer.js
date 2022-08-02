@@ -1,7 +1,7 @@
 import { ADD_CART_PRODUCT, REMOVE_CART_PRODUCT, CLEAR_CART } from "./types"
 
 const initialState = {
-    products: [],
+    products: JSON.parse(localStorage.getItem("cart")) || [],
     totalPrice: 0
 }
 
