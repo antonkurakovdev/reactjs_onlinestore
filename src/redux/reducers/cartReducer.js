@@ -1,4 +1,4 @@
-import { ADD_CART_PRODUCT, REMOVE_CART_PRODUCT, CLEAR_CART } from "./types"
+import { ADD_CART_PRODUCT, REMOVE_CART_PRODUCT, CLEAR_CART } from "../types" 
 
 const initialState = {
     products: JSON.parse(localStorage.getItem("cart")) || [],

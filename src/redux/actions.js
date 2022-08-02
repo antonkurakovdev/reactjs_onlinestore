@@ -1,4 +1,4 @@
-import { GET_CATEGORY_PRODUCTS, SWITCH_PRODUCTS_DISPLAY_TYPE, SWITCH_PRODUCTS_SORT_TYPE, ADD_CART_PRODUCT, REMOVE_CART_PRODUCT, CLEAR_CART, UPDATE_PRODUCT_AMOUNT } from "./types";
+import { GET_CATEGORY_PRODUCTS, SWITCH_PRODUCTS_DISPLAY_TYPE, SWITCH_PRODUCTS_SORT_TYPE, UPDATE_PRODUCT_AMOUNT, ADD_CART_PRODUCT, REMOVE_CART_PRODUCT, CLEAR_CART, ADD_WISHLIST_PRODUCT, REMOVE_WISHLIST_PRODUCT, CLEAR_WISHLIST } from "./types";
 
 //get list products of category
 export function getProducts(limit, skip){
@@ -23,6 +23,13 @@ export function switchProductsSortType(value){
     }
 }
 
+export function updateProductAmount(productId, newAmount){
+    return {
+        type: UPDATE_PRODUCT_AMOUNT,
+        data: { productId, newAmount}
+    }
+}
+
 export function addToCart(product){
     return {
         type: ADD_CART_PRODUCT,
@@ -43,10 +50,23 @@ export function clearCart(){
     }
 }
 
-export function updateProductAmount(productId, newAmount){
+
+export function addToWishlist(product){
     return {
-        type: UPDATE_PRODUCT_AMOUNT,
-        data: { productId, newAmount}
+        type: ADD_WISHLIST_PRODUCT,
+        data: product
     }
 }
 
+export function removeFromWishlist(product){
+    return {
+        type: REMOVE_WISHLIST_PRODUCT,
+        data: product
+    }
+}
+
+export function clearWishlist(){
+    return {
+        type: CLEAR_WISHLIST
+    }
+}
