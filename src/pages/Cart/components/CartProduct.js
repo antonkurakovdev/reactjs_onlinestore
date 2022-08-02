@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 import { useDispatch } from "react-redux"
 
-import { removeFromCart } from "../../../redux/actions"
+import { removeFromCart } from "../../../redux/actions/cartActions"
 
 const CartProduct = ({ product }) => {
     const dispatch = useDispatch()

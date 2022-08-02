@@ -2,7 +2,7 @@ import React, { useEffect } from "react"
 import { Link } from "react-router-dom"
 import { useDispatch, useSelector } from 'react-redux'
 
-import { clearCart } from "../../redux/actions";
+import { clearCart } from "../../redux/actions/cartActions";
 import Breadcrumbs from "../../blocks/Breadcrumbs/Breadcrumbs"
 import CartProduct from "./components/CartProduct";
 import "./Cart.scss"

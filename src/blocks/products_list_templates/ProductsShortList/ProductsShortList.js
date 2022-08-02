@@ -6,7 +6,8 @@ import { useDispatch } from "react-redux";
 
 import "./ProductsShortList.scss"
 
-import { addToCart, updateProductAmount } from "../../../redux/actions";
+import { updateProductAmount } from "../../../redux/actions/categoryActions";
+import { addToCart } from "../../../redux/actions/cartActions";
 
 function ProductsShortList({ product }){
     const dispatch = useDispatch()

@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import Select from 'react-select'
 
 import "./Category.scss"
-import { getProducts, switchProductsDisplayType } from "../../redux/actions";
+import { getProducts, switchProductsDisplayType } from "../../redux/actions/categoryActions";
 import Breadcrumbs from "../../blocks/Breadcrumbs/Breadcrumbs";
 import Menu from "../../blocks/Menu/Menu";
 import ProductsGridList from "../../blocks/products_list_templates/ProductsGridList/ProductsGridList";
