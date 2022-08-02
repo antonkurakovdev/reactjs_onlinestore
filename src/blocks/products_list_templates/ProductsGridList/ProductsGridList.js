@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 
 import "./ProductsGridList.scss"
 
-import { addToCart } from "../../../redux/actions";
+import { addToCart, updateProductAmount } from "../../../redux/actions";
 
 function ProductsGridList({ product }){
     const dispatch = useDispatch()
@@ -17,7 +17,9 @@ function ProductsGridList({ product }){
             title: product.title,
             thumbnail: product.thumbnail,
             price: product.price,
-            amount: 1,
+            amount: product.amount,
+            brand: product.brand,
+            category: product.category
         }
         dispatch(addToCart(item))
     } 
@@ -25,12 +27,16 @@ function ProductsGridList({ product }){
         product.amount = 1;
     }
 
-    const onClickIncrease = () => {
-        // product.amount++;
+    const onClickIncreaseAmount = () => {
+        dispatch(updateProductAmount(product.id, product.amount + 1))
     }
-
-    const onClickDecrease = () => {
-        // product.amount--;
+    const onClickDecreaseAmount = () => {
+        if (product.amount > 1){
+            dispatch(updateProductAmount(product.id, product.amount - 1))
+        }
+    }
+    const onChangeAmount = (event) => {
+        dispatch(updateProductAmount(product.id, parseInt(event.target.value)))
     }
 
     return (
@@ -73,9 +79,9 @@ function ProductsGridList({ product }){
 
                         <div className="qty">
                             <div className="qty__wrapper">
-                                <span onClick={onClickDecrease} className="qty__decrease"><i class="fa-solid fa-minus"></i></span>
-                                <input className="qty__input" type="text" value={product.amount} />
-                                <span onClick={onClickIncrease} className="qty__increase"><i class="fa-solid fa-plus"></i></span>
+                                <span onClick={onClickDecreaseAmount} className="qty__decrease"><i className="fa-solid fa-minus"></i></span>
+                                <input onChange={onChangeAmount} className="qty__input" type="text" value={product.amount} />
+                                <span onClick={onClickIncreaseAmount} className="qty__increase"><i className="fa-solid fa-plus"></i></span>
                             </div>
                         </div>
                     </div>

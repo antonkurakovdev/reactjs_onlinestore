@@ -1,4 +1,4 @@
-import { GET_CATEGORY_PRODUCTS, SWITCH_PRODUCTS_DISPLAY_TYPE, SWITCH_PRODUCTS_SORT_TYPE, ADD_CART_PRODUCT, REMOVE_CART_PRODUCT, CLEAR_CART } from "./types";
+import { GET_CATEGORY_PRODUCTS, SWITCH_PRODUCTS_DISPLAY_TYPE, SWITCH_PRODUCTS_SORT_TYPE, ADD_CART_PRODUCT, REMOVE_CART_PRODUCT, CLEAR_CART, UPDATE_PRODUCT_AMOUNT } from "./types";
 
 //get list products of category
 export function getProducts(limit, skip){
@@ -43,4 +43,10 @@ export function clearCart(){
     }
 }
 
+export function updateProductAmount(productId, newAmount){
+    return {
+        type: UPDATE_PRODUCT_AMOUNT,
+        data: { productId, newAmount}
+    }
+}
 
