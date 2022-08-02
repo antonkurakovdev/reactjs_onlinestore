@@ -26,7 +26,6 @@ function ProductsGridList({ product }){
     if (!product.amount){
         product.amount = 1;
     }
-
     const onClickIncreaseAmount = () => {
         dispatch(updateProductAmount(product.id, product.amount + 1))
     }

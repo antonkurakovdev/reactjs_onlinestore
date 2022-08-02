@@ -102,10 +102,23 @@
             display: flex;
             align-items: center;
             cursor: pointer;
+            position: relative;
+            z-index: 1;
 
             i{
                 font-size: 18px;
                 margin: 0px auto;
+            }
+
+            &-wrapper{
+                position: relative;
+    
+                &:hover{
+                    .qty{
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                }                
             }
         }
 
