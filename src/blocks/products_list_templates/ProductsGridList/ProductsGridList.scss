@@ -175,5 +175,11 @@
             }
 
         }
+
+        &-add_to_wishlist{
+            .fa-solid{
+                color: $color-blue;
+            }
+        }
     }
 }

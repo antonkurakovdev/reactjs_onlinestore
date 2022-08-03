@@ -8,11 +8,17 @@ import { useDispatch } from "react-redux";
 import "./ProductsGridList.scss"
 
 import { updateProductAmount } from "../../../redux/actions/categoryActions";
-import { addToCart } from "../../../redux/actions/cartActions";
+import { addToCart, removeFromCart } from "../../../redux/actions/cartActions";
+import { addToWishlist, removeFromWishlist } from "../../../redux/actions/wishlistActions";
 
-function ProductsGridList({ product }){
+function ProductsGridList({ product, cart, wishlist }){
     const dispatch = useDispatch()
-    const onClickAdd = () => {
+
+    if (!product.amount){
+        product.amount = 1;
+    }
+    
+    const onClickAddToCart = () => {
         const item = {
             id: product.id,
             title: product.title,
@@ -23,9 +29,27 @@ function ProductsGridList({ product }){
             category: product.category
         }
         dispatch(addToCart(item))
-    } 
-    if (!product.amount){
-        product.amount = 1;
+    }
+    const onClickAddToWishlist = () =>{
+        const item = {
+            id: product.id,
+            title: product.title,
+            thumbnail: product.thumbnail,
+            price: product.price,
+            amount: product.amount,
+            brand: product.brand,
+            category: product.category
+        }
+        dispatch(addToWishlist(item))
+    }
+    const onClickRemoveFromWishlist = () =>{
+        dispatch(removeFromWishlist(product))
+    }
+    const onClickAddToCompare = () =>{
+
+    }
+    const onClickRemoveFromCompare = () =>{
+
     }
     const onClickIncreaseAmount = () => {
         dispatch(updateProductAmount(product.id, product.amount + 1))
@@ -39,14 +63,22 @@ function ProductsGridList({ product }){
         dispatch(updateProductAmount(product.id, parseInt(event.target.value)))
     }
 
+
+    let wishlistLink;
+    if (wishlist.products.some((item) => item.id === product.id)){
+        wishlistLink = <div onClick={onClickRemoveFromWishlist} className="grid__item-button grid__item-add_to_wishlist"><i className="fa-solid fa-heart"></i></div>;
+    }else{
+        wishlistLink = <div onClick={onClickAddToWishlist} className="grid__item-button grid__item-add_to_wishlist"><i className="fa-regular fa-heart"></i></div>;
+    }
+
     return (
         <div className="grid__item">
             <div className="grid__item-wrap">
                 <div className="grid__item-image">
                     <Link to={"products/" + product.id}><img alt="" src={product.thumbnail} /></Link>
                     <div className="grid__item-buttons">
-                        <div className="grid__item-button grid__item-addtowishlist"><i className="fa-regular fa-heart"></i></div>
-                        <div className="grid__item-button grid__item-addtocompare"><i className="fa-solid fa-chart-simple"></i></div>
+                        {wishlistLink}
+                        <div onClick={onClickAddToCompare} className="grid__item-button grid__item-addtocompare"><i className="fa-solid fa-chart-simple"></i></div>
                     </div>
                 </div>
                 <div className="grid__item-name">
@@ -73,7 +105,7 @@ function ProductsGridList({ product }){
                         {product.price} руб.
                     </div>
                     <div className="grid__item-control-right">
-                        <div onClick={onClickAdd} className="grid__item-add_to_cart">
+                        <div onClick={onClickAddToCart} className="grid__item-add_to_cart">
                             <i className="fa-solid fa-cart-shopping"></i>
                         </div>
 

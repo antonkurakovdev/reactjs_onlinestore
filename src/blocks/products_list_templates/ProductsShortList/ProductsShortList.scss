@@ -139,6 +139,12 @@
             }
         }
 
+        &-add_to_wishlist{
+            .fa-solid{
+                color: $color-blue;
+            }
+        }
+
         &-content{
             width: calc(60% - 120px);
         }

@@ -13,8 +13,8 @@ import ProductsShortList from "../../blocks/products_list_templates/ProductsShor
 
 const Category = () => {
     const dispatch = useDispatch()
-    const category = useSelector((state) => {
-        return state.category
+    const { category, cart, wishlist } = useSelector((state) => {
+        return state
     })
 
     const sideMenu = [
@@ -98,7 +98,7 @@ const Category = () => {
 
                         <div className={ (category.displayType === 1) ? 'grid' : 'shortlist'}>
                             { category.products && category.products.map((product) => {
-                                return (category.displayType === 1) ? <ProductsGridList product={product} key={product.id} /> : <ProductsShortList product={product} key={product.id} /> 
+                                return (category.displayType === 1) ? <ProductsGridList product={product} cart={cart} wishlist={wishlist} key={product.id} /> : <ProductsShortList product={product} cart={cart} wishlist={wishlist} key={product.id} /> 
                             })}
                         </div>
 

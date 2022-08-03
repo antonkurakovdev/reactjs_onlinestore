@@ -8,10 +8,14 @@ import "./ProductsShortList.scss"
 
 import { updateProductAmount } from "../../../redux/actions/categoryActions";
 import { addToCart } from "../../../redux/actions/cartActions";
+import { addToWishlist, removeFromWishlist } from "../../../redux/actions/wishlistActions";
 
-function ProductsShortList({ product }){
+function ProductsShortList({ product, cart, wishlist }){
     const dispatch = useDispatch()
-    const onClickAdd = () => {
+    if (!product.amount){
+        product.amount = 1;
+    }
+    const onClickAddToCart = () => {
         const item = {
             id: product.id,
             title: product.title,
@@ -22,9 +26,27 @@ function ProductsShortList({ product }){
             category: product.category
         }
         dispatch(addToCart(item))
-    } 
-    if (!product.amount){
-        product.amount = 1;
+    }
+    const onClickAddToWishlist = () =>{
+        const item = {
+            id: product.id,
+            title: product.title,
+            thumbnail: product.thumbnail,
+            price: product.price,
+            amount: product.amount,
+            brand: product.brand,
+            category: product.category
+        }
+        dispatch(addToWishlist(item))
+    }
+    const onClickRemoveFromWishlist = () =>{
+        dispatch(removeFromWishlist(product))
+    }
+    const onClickAddToCompare = () =>{
+
+    }
+    const onClickRemoveFromCompare = () =>{
+
     }
     const onClickIncreaseAmount = () => {
         dispatch(updateProductAmount(product.id, product.amount + 1))
@@ -36,6 +58,13 @@ function ProductsShortList({ product }){
     }
     const onChangeAmount = (event) => {
         dispatch(updateProductAmount(product.id, parseInt(event.target.value)))
+    }
+
+    let wishlistLink;
+    if (wishlist.products.some((item) => item.id === product.id)){
+        wishlistLink = <div onClick={onClickRemoveFromWishlist} className="shortlist__item-add_to_wishlist"><i className="fa-solid fa-heart"></i></div>;
+    }else{
+        wishlistLink = <div onClick={onClickAddToWishlist} className="shortlist__item-add_to_wishlist"><i className="fa-regular fa-heart"></i></div>;
     }
 
     return (
@@ -75,7 +104,7 @@ function ProductsShortList({ product }){
                         {product.price} руб.
                     </div>
                     <div className="shortlist__item-add_to_cart-wrapper">
-                        <div onClick={onClickAdd} className="shortlist__item-add_to_cart">
+                        <div onClick={onClickAddToCart} className="shortlist__item-add_to_cart">
                             <i className="fa-solid fa-cart-shopping"></i>
                         </div>
                         <div className="qty">
@@ -86,7 +115,7 @@ function ProductsShortList({ product }){
                             </div>
                         </div>
                     </div>
-                    <div className="shortlist__item-add_to_wishlist"><i className="fa-regular fa-heart"></i></div>
+                    {wishlistLink}
                     <div className="shortlist__item-add_to_compare"><i className="fa-solid fa-chart-simple"></i></div>
                 </div>
             </div>
