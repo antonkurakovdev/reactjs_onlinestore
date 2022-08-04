@@ -145,6 +145,14 @@
             }
         }
 
+        &-add_to_compare{
+            &.added{
+                .fa-solid{
+                    color: $color-blue;
+                }     
+            }
+        }
+
         &-content{
             width: calc(60% - 120px);
         }

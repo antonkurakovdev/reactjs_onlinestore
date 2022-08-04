@@ -9,8 +9,9 @@ import "./ProductsShortList.scss"
 import { updateProductAmount } from "../../../redux/actions/categoryActions";
 import { addToCart } from "../../../redux/actions/cartActions";
 import { addToWishlist, removeFromWishlist } from "../../../redux/actions/wishlistActions";
+import { addToCompare, removeFromCompare } from "../../../redux/actions/compareActions";
 
-function ProductsShortList({ product, cart, wishlist }){
+function ProductsShortList({ product, cart, wishlist, compare }){
     const dispatch = useDispatch()
     if (!product.amount){
         product.amount = 1;
@@ -43,10 +44,19 @@ function ProductsShortList({ product, cart, wishlist }){
         dispatch(removeFromWishlist(product))
     }
     const onClickAddToCompare = () =>{
-
+        const item = {
+            id: product.id,
+            title: product.title,
+            thumbnail: product.thumbnail,
+            price: product.price,
+            amount: product.amount,
+            brand: product.brand,
+            category: product.category
+        }
+        dispatch(addToCompare(item))
     }
     const onClickRemoveFromCompare = () =>{
-
+        dispatch(removeFromCompare(product))
     }
     const onClickIncreaseAmount = () => {
         dispatch(updateProductAmount(product.id, product.amount + 1))
@@ -60,13 +70,17 @@ function ProductsShortList({ product, cart, wishlist }){
         dispatch(updateProductAmount(product.id, parseInt(event.target.value)))
     }
 
-    let wishlistLink;
+    let wishlistLink, compareLink;
     if (wishlist.products.some((item) => item.id === product.id)){
         wishlistLink = <div onClick={onClickRemoveFromWishlist} className="shortlist__item-add_to_wishlist"><i className="fa-solid fa-heart"></i></div>;
     }else{
         wishlistLink = <div onClick={onClickAddToWishlist} className="shortlist__item-add_to_wishlist"><i className="fa-regular fa-heart"></i></div>;
     }
-
+    if (compare.products.some((item) => item.id === product.id)){
+        compareLink = <div onClick={onClickRemoveFromCompare} className="shortlist__item-add_to_compare added"><i className="fa-solid fa-chart-simple"></i></div>
+    }else{
+        compareLink = <div onClick={onClickAddToCompare} className="shortlist__item-add_to_compare"><i className="fa-solid fa-chart-simple"></i></div>
+    }
     return (
         <div className="shortlist__item">
             <div className="shortlist__item-wrap">
@@ -116,7 +130,7 @@ function ProductsShortList({ product, cart, wishlist }){
                         </div>
                     </div>
                     {wishlistLink}
-                    <div className="shortlist__item-add_to_compare"><i className="fa-solid fa-chart-simple"></i></div>
+                    {compareLink}
                 </div>
             </div>
         </div>

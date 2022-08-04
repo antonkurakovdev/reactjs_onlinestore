@@ -73,15 +73,12 @@ function ProductsGridList({ product, cart, wishlist, compare }){
         dispatch(updateProductAmount(product.id, parseInt(event.target.value)))
     }
 
-
-    let wishlistLink;
+    let wishlistLink, compareLink;
     if (wishlist.products.some((item) => item.id === product.id)){
         wishlistLink = <div onClick={onClickRemoveFromWishlist} className="grid__item-button grid__item-add_to_wishlist"><i className="fa-solid fa-heart"></i></div>
     }else{
         wishlistLink = <div onClick={onClickAddToWishlist} className="grid__item-button grid__item-add_to_wishlist"><i className="fa-regular fa-heart"></i></div>
     }
-
-    let compareLink;
     if (compare.products.some((item) => item.id === product.id)){
         compareLink = <div onClick={onClickRemoveFromCompare} className="grid__item-button grid__item-add_to_compare added"><i className="fa-solid fa-chart-simple"></i></div>
     }else{
