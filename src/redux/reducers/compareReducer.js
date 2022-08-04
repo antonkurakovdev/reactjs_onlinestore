@@ -1,10 +1,10 @@
 import { ADD_COMPARE_PRODUCT, REMOVE_COMPARE_PRODUCT, CLEAR_COMPARE } from "../types"
 
 const initialState = {
-    products: JSON.parse(localStorage.getItem("comparison")) || []
+    products: JSON.parse(localStorage.getItem("compare")) || []
 }
 
-export const comparisonReducer = (state = initialState, action) => {
+export const compareReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_COMPARE_PRODUCT:
             return {...state, products: state.products.concat(action.data) }
