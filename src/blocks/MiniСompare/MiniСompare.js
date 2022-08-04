@@ -6,10 +6,8 @@ function MiniСompare(){
     const { products } = useSelector((state) => state.compare)
 
     useEffect(() => {
-        if (localStorage.getItem('compare')){
-            const json = JSON.stringify(products);
-            localStorage.setItem('compare', json)
-        }
+        const json = JSON.stringify(products);
+        localStorage.setItem('compare', json)
     }, [products]) 
     return (
         <div className="compare-mini dropdown-box">

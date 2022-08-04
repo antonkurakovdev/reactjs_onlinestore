@@ -7,10 +7,8 @@ function MiniWishlist(){
     const { products } = useSelector((state) => state.wishlist)
    
     useEffect(() => {
-        if (localStorage.getItem('wishlist')){
-            const json = JSON.stringify(products);
-            localStorage.setItem('wishlist', json)
-        }
+        const json = JSON.stringify(products);
+        localStorage.setItem('wishlist', json)
     }, [products])
     return (
         <div className="wishlist-mini dropdown-box">
