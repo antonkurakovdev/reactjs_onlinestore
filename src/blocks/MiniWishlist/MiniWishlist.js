@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 
 function MiniWishlist(){
     const { products } = useSelector((state) => state.wishlist)
-
+   
     useEffect(() => {
         if (localStorage.getItem('wishlist')){
             const json = JSON.stringify(products);

@@ -13,7 +13,7 @@ import ProductsShortList from "../../blocks/products_list_templates/ProductsShor
 
 const Category = () => {
     const dispatch = useDispatch()
-    const { category, cart, wishlist } = useSelector((state) => {
+    const { category, cart, wishlist, compare } = useSelector((state) => {
         return state
     })
 
@@ -98,7 +98,7 @@ const Category = () => {
 
                         <div className={ (category.displayType === 1) ? 'grid' : 'shortlist'}>
                             { category.products && category.products.map((product) => {
-                                return (category.displayType === 1) ? <ProductsGridList product={product} cart={cart} wishlist={wishlist} key={product.id} /> : <ProductsShortList product={product} cart={cart} wishlist={wishlist} key={product.id} /> 
+                                return (category.displayType === 1) ? <ProductsGridList product={product} cart={cart} wishlist={wishlist} compare={compare} key={product.id} /> : <ProductsShortList product={product} cart={cart} wishlist={wishlist} compare={compare} key={product.id} /> 
                             })}
                         </div>
 

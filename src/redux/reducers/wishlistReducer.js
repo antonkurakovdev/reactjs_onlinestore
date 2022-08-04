@@ -5,6 +5,7 @@ const initialState = {
 }
 
 export const wishlistReducer = (state = initialState, action) => {
+    console.log('state', state);
     switch (action.type) {
         case ADD_WISHLIST_PRODUCT:
             return {...state, products: state.products.concat(action.data) }

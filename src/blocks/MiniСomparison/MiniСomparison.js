@@ -3,14 +3,14 @@ import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 
 function MiniСomparison(){
-    const { products } = useSelector((state) => state.comparison)
+    const { products } = useSelector((state) => state.compare)
 
     useEffect(() => {
-        if (localStorage.getItem('comparison')){
+        if (localStorage.getItem('compare')){
             const json = JSON.stringify(products);
-            localStorage.setItem('comparison', json)
+            localStorage.setItem('compare', json)
         }
-    }, [products])
+    }, [products]) 
     return (
         <div className="compare-mini dropdown-box">
             <div className="compare-mini__title dropdown-box__title">

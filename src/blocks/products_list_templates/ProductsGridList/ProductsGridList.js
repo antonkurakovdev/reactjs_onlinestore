@@ -10,8 +10,9 @@ import "./ProductsGridList.scss"
 import { updateProductAmount } from "../../../redux/actions/categoryActions";
 import { addToCart, removeFromCart } from "../../../redux/actions/cartActions";
 import { addToWishlist, removeFromWishlist } from "../../../redux/actions/wishlistActions";
+import { addToCompare, removeFromCompare } from "../../../redux/actions/compareActions";
 
-function ProductsGridList({ product, cart, wishlist }){
+function ProductsGridList({ product, cart, wishlist, compare }){
     const dispatch = useDispatch()
 
     if (!product.amount){
@@ -46,10 +47,19 @@ function ProductsGridList({ product, cart, wishlist }){
         dispatch(removeFromWishlist(product))
     }
     const onClickAddToCompare = () =>{
-
+        const item = {
+            id: product.id,
+            title: product.title,
+            thumbnail: product.thumbnail,
+            price: product.price,
+            amount: product.amount,
+            brand: product.brand,
+            category: product.category
+        }
+        dispatch(addToCompare(item))
     }
     const onClickRemoveFromCompare = () =>{
-
+        dispatch(removeFromCompare(product))
     }
     const onClickIncreaseAmount = () => {
         dispatch(updateProductAmount(product.id, product.amount + 1))
@@ -66,9 +76,16 @@ function ProductsGridList({ product, cart, wishlist }){
 
     let wishlistLink;
     if (wishlist.products.some((item) => item.id === product.id)){
-        wishlistLink = <div onClick={onClickRemoveFromWishlist} className="grid__item-button grid__item-add_to_wishlist"><i className="fa-solid fa-heart"></i></div>;
+        wishlistLink = <div onClick={onClickRemoveFromWishlist} className="grid__item-button grid__item-add_to_wishlist"><i className="fa-solid fa-heart"></i></div>
     }else{
-        wishlistLink = <div onClick={onClickAddToWishlist} className="grid__item-button grid__item-add_to_wishlist"><i className="fa-regular fa-heart"></i></div>;
+        wishlistLink = <div onClick={onClickAddToWishlist} className="grid__item-button grid__item-add_to_wishlist"><i className="fa-regular fa-heart"></i></div>
+    }
+
+    let compareLink;
+    if (compare.products.some((item) => item.id === product.id)){
+        compareLink = <div onClick={onClickRemoveFromCompare} className="grid__item-button grid__item-add_to_compare added"><i className="fa-solid fa-chart-simple"></i></div>
+    }else{
+        compareLink = <div onClick={onClickAddToCompare} className="grid__item-button grid__item-add_to_compare"><i className="fa-solid fa-chart-simple"></i></div>
     }
 
     return (
@@ -78,7 +95,7 @@ function ProductsGridList({ product, cart, wishlist }){
                     <Link to={"products/" + product.id}><img alt="" src={product.thumbnail} /></Link>
                     <div className="grid__item-buttons">
                         {wishlistLink}
-                        <div onClick={onClickAddToCompare} className="grid__item-button grid__item-addtocompare"><i className="fa-solid fa-chart-simple"></i></div>
+                        {compareLink}
                     </div>
                 </div>
                 <div className="grid__item-name">

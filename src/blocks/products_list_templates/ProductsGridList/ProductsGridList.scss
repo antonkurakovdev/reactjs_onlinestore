@@ -181,5 +181,12 @@
                 color: $color-blue;
             }
         }
+        &-add_to_compare{
+            &.added{
+                .fa-solid{
+                    color: $color-blue;
+                }
+            }
+        }
     }
 }
