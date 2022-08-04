@@ -2,7 +2,7 @@ import React, { useEffect } from "react"
 import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 
-function MiniСomparison(){
+function MiniСompare(){
     const { products } = useSelector((state) => state.compare)
 
     useEffect(() => {
@@ -54,4 +54,4 @@ function MiniСomparison(){
     )
 }
 
-export default MiniСomparison
+export default MiniСompare

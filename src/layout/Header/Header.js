@@ -4,7 +4,7 @@ import './Header.scss'
 import Logo from "../../blocks/static_templates/Logo/Logo"
 import Search from "../../blocks/Search/Search"
 import CallRequest from "../../blocks/CallRequest/CallRequest"
-import MiniСomparison from "../../blocks/MiniСomparison/MiniСomparison"
+import MiniСompare from "../../blocks/MiniСompare/MiniСompare"
 import MiniWishlist from "../../blocks/MiniWishlist/MiniWishlist"
 import MiniAccount from "../../blocks/MiniAccount/MiniAccount"
 import MiniCart from "../../blocks/MiniCart/MiniCart"
@@ -20,7 +20,7 @@ function Header(){
                     <CallRequest />
 
                     <div className="header__right">
-                        <MiniСomparison />
+                        <MiniСompare />
                         <MiniWishlist />
                         <MiniAccount />
                         <MiniCart />
