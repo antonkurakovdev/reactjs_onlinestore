@@ -166,6 +166,28 @@
             cursor: pointer;
             position: relative;
             z-index: 2;
+            
+            .count{
+                position: absolute;
+                font-size: 9px;
+                font-weight: bold;
+                right: 3px;
+                top: 3px;
+                background-color: white;
+                color: $color-blue;
+                border-radius: 100%;
+                width: 12px;
+                line-height: 12px;
+                text-align: center;
+            }
+
+            &.remove{
+                background-color: $color-blue;
+
+                & + .qty{
+                    display: none;
+                }
+            }
 
             i{
                 font-size: 18px;
