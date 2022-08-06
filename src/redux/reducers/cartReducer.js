@@ -10,7 +10,7 @@ export const cartReducer = (state = initialState, action) => {
         case ADD_CART_PRODUCT:
             return {...state, products: state.products.concat(action.data) }
         case REMOVE_CART_PRODUCT:
-            return {...state, products: state.products.filter(obj => obj.id !== action.data.id)}
+            return {...state, products: state.products.filter(obj => obj.id !== action.data)}
         case CLEAR_CART:
             return { products: [], totalPrice: 0 }
         case UPDATE_CART_PRODUCT_AMOUNT:

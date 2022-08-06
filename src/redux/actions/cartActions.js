@@ -7,10 +7,10 @@ export function addToCart(product){
     }
 }
 
-export function removeFromCart(product){
+export function removeFromCart(productId){
     return {
         type: REMOVE_CART_PRODUCT,
-        data: product
+        data: productId
     }
 }
 

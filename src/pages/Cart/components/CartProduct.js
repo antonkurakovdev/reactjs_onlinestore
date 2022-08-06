@@ -8,7 +8,7 @@ const CartProduct = ({ product }) => {
     const dispatch = useDispatch()
 
     const onClickDelete = () => {
-        dispatch(removeFromCart(product))
+        dispatch(removeFromCart(product.id))
         dispatch(updateCartTotal())
     }
     const onClickDecreaseAmount = () => {
