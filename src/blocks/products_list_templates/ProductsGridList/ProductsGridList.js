@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import "./ProductsGridList.scss"
 
 import { updateProductAmount } from "../../../redux/actions/categoryActions";
-import { addToCart, removeFromCart } from "../../../redux/actions/cartActions";
+import { addToCart, updateCartTotal } from "../../../redux/actions/cartActions";
 import { addToWishlist, removeFromWishlist } from "../../../redux/actions/wishlistActions";
 import { addToCompare, removeFromCompare } from "../../../redux/actions/compareActions";
 
@@ -30,6 +30,7 @@ function ProductsGridList({ product, cart, wishlist, compare }){
             category: product.category
         }
         dispatch(addToCart(item))
+        dispatch(updateCartTotal())
     }
     const onClickAddToWishlist = () =>{
         const item = {
