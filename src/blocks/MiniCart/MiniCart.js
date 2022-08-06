@@ -3,14 +3,17 @@ import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 
 function MiniCart(){
-    const { products } = useSelector((state) => state.cart)
+    const { products, totalPrice } = useSelector((state) => state.cart)
 
     useEffect(() => {
-        if (localStorage.getItem('cart')){
-            const json = JSON.stringify(products);
-            localStorage.setItem('cart', json)
-        }
+        localStorage.setItem('cart', JSON.stringify(products))
     }, [products])
+
+    useEffect(() => {
+        if (localStorage.getItem('cartTotalPrice')){
+            localStorage.setItem('cartTotalPrice', JSON.stringify(totalPrice))
+        }
+    }, [totalPrice])
 
     return (
         <div className="cart-mini dropdown-box">

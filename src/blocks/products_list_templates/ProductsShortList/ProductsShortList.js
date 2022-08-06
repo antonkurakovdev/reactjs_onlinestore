@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 import "./ProductsShortList.scss"
 
 import { updateProductAmount } from "../../../redux/actions/categoryActions";
-import { addToCart } from "../../../redux/actions/cartActions";
+import { addToCart, updateCartTotal } from "../../../redux/actions/cartActions";
 import { addToWishlist, removeFromWishlist } from "../../../redux/actions/wishlistActions";
 import { addToCompare, removeFromCompare } from "../../../redux/actions/compareActions";
 
@@ -27,6 +27,7 @@ function ProductsShortList({ product, cart, wishlist, compare }){
             category: product.category
         }
         dispatch(addToCart(item))
+        dispatch(updateCartTotal())
     }
     const onClickAddToWishlist = () =>{
         const item = {
@@ -72,9 +73,9 @@ function ProductsShortList({ product, cart, wishlist, compare }){
 
     let wishlistLink, compareLink;
     if (wishlist.products.some((item) => item.id === product.id)){
-        wishlistLink = <div onClick={onClickRemoveFromWishlist} className="shortlist__item-add_to_wishlist"><i className="fa-solid fa-heart"></i></div>;
+        wishlistLink = <div onClick={onClickRemoveFromWishlist} className="shortlist__item-add_to_wishlist"><i className="fa-solid fa-heart"></i></div>
     }else{
-        wishlistLink = <div onClick={onClickAddToWishlist} className="shortlist__item-add_to_wishlist"><i className="fa-regular fa-heart"></i></div>;
+        wishlistLink = <div onClick={onClickAddToWishlist} className="shortlist__item-add_to_wishlist"><i className="fa-regular fa-heart"></i></div>
     }
     if (compare.products.some((item) => item.id === product.id)){
         compareLink = <div onClick={onClickRemoveFromCompare} className="shortlist__item-add_to_compare added"><i className="fa-solid fa-chart-simple"></i></div>

@@ -57,6 +57,19 @@
 
         &-qty{
             width: 150px;
+
+            .qty{
+                position: static;
+                visibility: visible;
+                opacity: 1;
+                padding-right: 5px;
+                width: 80px;
+                margin: 0px auto;
+
+                &__wrapper{
+                    width: 80px;
+                }
+            }
         }
 
         &-description{
@@ -68,10 +81,28 @@
             font-size: 16px;
             color: $color-blue;
             text-decoration: none;
+            margin-right: 10px;
+        }     
+        
+        &-delete{
+            color: #a2a2a2;
+            cursor: pointer;
         }
 
+        &-options{
+            &.sku{
+                margin-top: 10px;
+            }
 
-        
+            &-label, &-value{
+                font-size: 12px;
+            }
+
+            &-label{
+                margin-right: 5px;
+                font-weight: bold;
+            }
+        }
     }
 
     &__empty{
