@@ -47,7 +47,7 @@ function ProductsShortList({ product, cart, wishlist, compare }){
         dispatch(addToWishlist(item))
     }
     const onClickRemoveFromWishlist = () =>{
-        dispatch(removeFromWishlist(product))
+        dispatch(removeFromWishlist(product.id))
     }
     const onClickAddToCompare = () =>{
         const item = {
@@ -62,7 +62,7 @@ function ProductsShortList({ product, cart, wishlist, compare }){
         dispatch(addToCompare(item))
     }
     const onClickRemoveFromCompare = () =>{
-        dispatch(removeFromCompare(product))
+        dispatch(removeFromCompare(product.id))
     }
     const onClickIncreaseAmount = () => {
         dispatch(updateProductAmount(product.id, product.amount + 1))

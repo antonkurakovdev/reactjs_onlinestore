@@ -9,7 +9,7 @@ export const compareReducer = (state = initialState, action) => {
         case ADD_COMPARE_PRODUCT:
             return {...state, products: state.products.concat(action.data) }
         case REMOVE_COMPARE_PRODUCT:
-            return {...state, products: state.products.filter(obj => obj.id !== action.data.id) }
+            return {...state, products: state.products.filter(obj => obj.id !== action.data) }
         case CLEAR_COMPARE:
             return { products: [] }
         default:
