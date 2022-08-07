@@ -5,7 +5,7 @@ import {
 
 import "./Product.scss"
 
-function Product(){
+const Product = () => {
     const { id } = useParams();
     const [product, setProduct] = useState({})
 
