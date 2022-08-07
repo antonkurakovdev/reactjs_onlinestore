@@ -6,12 +6,14 @@ import NotFound from './pages/NotFound/NotFound'
 import Header from './layout/Header/Header'
 import Footer from './layout/Footer/Footer'
 import TopPanel from './layout/TopPanel/TopPanel'
+import Checkout from './pages/Checkout/Checkout'
 
 import {
   BrowserRouter as Router,
   Routes,
   Route,
 } from "react-router-dom";
+
 
 
 function App() {
@@ -26,6 +28,7 @@ function App() {
           <Route path="/category/:id" element={<Category />} />
           <Route path="/products/:id" element={<Product />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
