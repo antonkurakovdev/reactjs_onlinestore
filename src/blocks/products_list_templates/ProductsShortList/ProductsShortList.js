@@ -113,15 +113,24 @@ function ProductsShortList({ product, cart, wishlist, compare }){
                             ({product.rating})
                         </div>
                     </div>
-                    <div className="shortlist__item-code">
-                        <span className="shortlist__item-code-label">КОД:</span>
-                        <span className="shortlist__item-code-value">AP534523466</span>
+                    <div className="shortlist__item-option">
+                        <span className="shortlist__item-option-label">КОД:</span>
+                        <span className="shortlist__item-option-value">AP534523466</span>
+                    </div>
+                    <div className="shortlist__item-option">
+                        <span className="shortlist__item-option-label">Бренд:</span>
+                        <span className="shortlist__item-option-value">{product.brand}</span>
+                    </div>
+                    <div className="shortlist__item-option">
+                        <span className="shortlist__item-option-label">Категория:</span>
+                        <span className="shortlist__item-option-value">{product.category}</span>
                     </div>
                     <div className={'shortlist__item-stock ' + ((product.stock > 0) ? 'shortlist__item-stock_active' : '')}>
                         <i className={'fa-regular ' + ((product.stock > 0) ? 'fa-circle-check' : 'fa-circle-xmark')}></i>
                         <span className='shortlist__item-stock-label'>В наличии:</span>
                         <span className='shortlist__item-stock-value'>{product.stock} шт.</span>
                     </div>
+
                 </div>
 
                 <div className="shortlist__item-controls">
