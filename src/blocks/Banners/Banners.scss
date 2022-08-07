@@ -1,0 +1,12 @@
+@import "~slick-carousel/slick/slick.css"; 
+@import "~slick-carousel/slick/slick-theme.css";
+
+.banners{
+    margin-bottom: 40px;
+
+    &__item{
+        &-wrap{
+            height: 550px;
+        }
+    }
+}
